@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HessBnb - Accueil</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <link rel="apple-touch-icon" href="/assets/logo.svg">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="logo-container">
+                <img src="/assets/logo.svg" alt="HessBnb Logo" class="site-logo">
+                <h1>HessBnb</h1>
+            </div>
+            <div class="header-actions">
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Où voulez-vous aller ?">
+                    <button class="search-btn">Rechercher</button>
+                </div>
+                <a href="/ajouter" class="btn-ajouter">Ajouter mon logement</a>
+            </div>
+        </div>
+    </header>
+    
+    <div class="main-container">
+        <div class="map-container">
+            <div id="map"></div>
+        </div>
+        
+        <main class="logements-grid">
+            <% logements.forEach(logement => { %>
+                <article class="logement-card">
+                    <img src="<%= logement.image %>" alt="<%= logement.titre %>">
+                    <div class="logement-info">
+                        <h2><%= logement.titre %></h2>
+                        <p class="prix"><%= logement.prix %>€ / nuit</p>
+                        <a href="/logement/<%= logement.id %>" class="btn-details">Voir les détails</a>
+                    </div>
+                </article>
+            <% }); %>
+        </main>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>À propos de HessBnb</h3>
+                <p>Trouvez les meilleurs logements pour vos vacances</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email : contact@hessbnb.fr</p>
+                <p>Téléphone : 01 23 45 67 89</p>
+            </div>
+            <div class="footer-section">
+                <h3>Suivez-nous</h3>
+                <div class="social-links">
+                    <a href="#">Facebook</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">Instagram</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 HessBnb - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="/js/map.js"></script>
+</body>
+</html> 
